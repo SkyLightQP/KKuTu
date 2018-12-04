@@ -1,0 +1,60 @@
+//-
+	Rule the words! KKuTu Online
+	Copyright (C) 2017 JJoriping(op@jjo.kr)
+	
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+	
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with this program. If not, see <http://www.gnu.org/licenses/>.
+extends layout
+
+block Subject
+	title= L('title')
+	
+block CSS
+	link(rel='stylesheet', href='/css/in_game_kkutu.css')
+
+block Middle
+	+separator(10)
+	div(style='float: left; width: 100%;')
+		div(style='float: left; padding-left: 45px;')
+			img#logo(src='/img/kkutu/short_logo.png')
+		div#menu-bar(style='float: right; margin-top: 25px;')
+			a(target='_blank', href='//discord.gg/gDgWvGM', style='background-color: #7289DA;')= L('discord')
+			a(target='_blank', href='//satskkutu.kro.kr', style='background-color: #8C8C8C;')= L('satskkutu')
+			a(target='_blank', href='//worldkkutu.kro.kr/', style='background-color: #6B66FF;')= L('worldkkutu')
+		div.jjoriping(style='margin-top: 65px;')
+			img.jjoObj.jjoEyeL(src='/img/jjoeyeL.png', style='left: -295px;')
+			img.jjoObj.jjoNose(src='/img/jjonose.png', style='left: -195px;')
+			img.jjoObj.jjoEyeR(src='/img/jjoeyeR.png', style='left: -95px;')
+			div.jjoDisplayBar(style='width: 325px; height: 85px;')
+				button#game-start.jjo-display= L('gameStart')
+	div(style='float: right; margin-top: -115px; width: 50%;')
+		div.server-list-box
+			h3.server-list-title
+				a#server-refresh
+					+FA('refresh')
+					+Expl(L('serverRefresh'))
+				label= L('serverList')
+				label#server-total(style='color: #AAA; font-size: 13px;')
+			div#server-list
+	div(style='float: left; width: calc(100% - 4px); border: 2px solid #CCC; margin-top: 10px; background-color: #EEE;')
+		iframe#kkutu-bulletin(width='100%', height='400px', src='/kkutu_bulletin.html')
+	+separator(10)
+	
+block Bottom
+	div
+		script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+		ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-2490453096003621', data-ad-slot='8044435426', data-ad-format='auto', data-full-width-responsive='true')
+		script.
+			(adsbygoogle = window.adsbygoogle || []).push({});
+	div.bottom-legal!= L('dictionarySupport')
+	div.bottom-legal!= L('etcSupport')

@@ -1,0 +1,80 @@
+//-
+	Rule the words! KKuTu Online
+	Copyright (C) 2017 JJoriping(op@jjo.kr)
+	
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+	
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with this program. If not, see <http://www.gnu.org/licenses/>.
+include module
+
+- if(LANG == undefined) LANG = locals.locale;
+
+doctype html
+html
+	head
+		title 끄투닷컴
+		block Subject
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no')
+		script(type='text/javascript').
+			function getObject(v, i){
+				Object.defineProperty(v, i, { value: v[i], writable: false });
+			}
+			getObject(window.WebSocket, "send");
+			getObject(window.WebSocket, "onmessage");
+			getObject(window, "WebSocket");
+			
+		script(type='text/javascript', async='', src='https://www.googletagmanager.com/gtag/js?id=UA-69668170-8')
+		script.
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-69668170-8');
+		
+		block Search
+			meta(name='description', content=LANG['meta_desc'] || L('META_DESC'))
+			meta(name='keywords', content=LANG['meta_keys'] || L('META_KEYS'))
+		
+		block OpenGraph
+			meta(property='og:image', content=locals.ogImage || "http://kkutu.club/img/ogImage.png")
+			meta(property='og:url', content=locals.ogURL || "http://kkutu.club/")
+			meta(property='og:title', content=locals.ogTitle || "글자로 놀자! - 끄투닷컴")
+			meta(property='og:description', content=locals.ogDescription || "끝말잇기부터 타자게임까지! 글자로 놀자!")
+		
+		
+		+PageHead()
+			block Preload
+		block CSS
+		block JS
+	
+	body(style='min-width: 200px;')
+		div#Top
+			+MMenu()
+			div#global-notice
+				div#gn-content
+					include ../public/global_notice.html
+			block Top
+		div#Jungle
+			span#mobile= locals.mobile
+			span#summonerID= DATA._id
+			img#Background(src='/img/bg/'+(locals.m_bg || 'def.png'))
+			block Jungle
+		div#Middle
+			block Middle
+		div#Bottom
+			block Bottom
+			div.bottom-legal
+				a(href='?pc=true')= L('AS_PC')
+				br
+				a.bottom-contact(href='http://blog.skylightqp.kr/', target='_blank')= L('CREATOR')
+			div.bottom-legal!= L('GPL')
+			+separator(40)

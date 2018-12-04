@@ -1,0 +1,19 @@
+{
+    "apps": [{
+        "name": "kkutu-game1",
+        "script": "Server/Game/cluster.js",
+        "args": "0 2"
+    }, {
+        "name": "kkutu-game2",
+        "script": "Server/Game/cluster.js",
+        "args": "1 2"
+    }, {
+        "name": "kkutu-game3",
+        "script": "Server/Game/cluster.js",
+        "args": "2 2"
+    }, {
+        "name": "kkutu-web1",
+        "script": "Server/Web/cluster.js",
+        "args": "2"
+    }]
+}

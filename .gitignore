@@ -1,0 +1,5 @@
+Server/node_modules
+
+Server/sub/*.json
+
+.idea/
