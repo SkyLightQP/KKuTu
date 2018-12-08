@@ -1,3 +1,24 @@
+# KKutuDotCom (끄투닷컴)
+## Branch
+끄투닷컴은 Github 브랜치를 용도에 따라 나누고 있습니다.
+
+| 브랜치 |                 기능                |
+|:------:|:-----------------------------------:|
+| master |      끄투닷컴에 실사용되는 소스     |
+|   dev  | 개발 중으로 테스트가 되지 않은 소스 |
+
+이 외 추가 개발 주제에 따라 브랜치를 만들거나 합칩니다.
+
+## 리소스 사용
+끄투닷컴 일부에서는 기존 끄투와는 다른 리소스를 사용하고 있습니다.
+
+경우에 따라 Credit 표기가 필요하며 끄투닷컴에서 제작한 리소스는 [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/deed.ko) 을(를) 따릅니다.
+
+## 시작 방법
+끄투닷컴은 PM2 을(를) 이용하여 가동하고 있습니다.
+
+루트 폴더에서 `pm2 start kkutu.json` 을(를) 이용하여 시작할 수 있습니다.
+
 # KKuTu
 - Made by [JJoriping](http://blog.jjo.kr/)
 - Special thanks to
