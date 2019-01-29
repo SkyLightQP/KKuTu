@@ -19,7 +19,7 @@
 const LANG = [ "ko", "en" ];
 
 var PgPool	 = require("pg").Pool;
-var GLOBAL	 = require("../sub/global.json");
+var GLOBAL	 = require("../sub/config/global.json");
 var JLog	 = require("../sub/jjlog");
 var Collection = require("../sub/collection");
 var Pub = require("../sub/checkpub");

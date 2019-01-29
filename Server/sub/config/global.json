@@ -1,0 +1,26 @@
+{
+	"ADMIN": [ "" ],
+	"MAIN_PORTS": [ 0 ],
+	"KKUTUHOT_PATH": "",
+	"PASS":"",
+	"PG_USER": "",
+	"PG_PASSWORD": "",
+	"PG_HOST": "",
+	"PG_PORT": 0,
+	"PG_DATABASE": "",
+	"REDIS_HOST": "",
+	"REDIS_PORT": 0,
+	"GOOGLE_RECAPTCHA_TO_GUEST": true,
+	"GOOGLE_RECAPTCHA_TO_USER": false,
+	"GOOGLE_RECAPTCHA_SITE_KEY": "",
+	"GOOGLE_RECAPTCHA_SECRET_KEY": "",
+	"IS_SECURED": false,
+	"SSL_OPTIONS": {
+		"PRIVKEY": "",
+		"CERT": "",
+		"CA": "",
+		"PFX": "",
+		"isPFX": false,
+		"isCA": false
+	}
+}

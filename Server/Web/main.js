@@ -33,7 +33,7 @@ const DB = require("./db");
 //볕뉘 수정 구문삭제 (28)
 const JLog = require("../sub/jjlog");
 const WebInit = require("../sub/webinit");
-const GLOBAL = require("../sub/global.json");
+const GLOBAL = require("../sub/config/global.json");
 //볕뉘 수정
 const passport = require('passport');
 //볕뉘 수정 끝
