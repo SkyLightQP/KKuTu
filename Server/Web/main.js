@@ -53,7 +53,7 @@ var page = WebInit.page;
 var gameServers = [];
 
 // 웹서버 포트
-const port = 9090;
+const port = 80;
 
 WebInit.MOBILE_AVAILABLE = [
 	"portal", "main", "kkutu"
