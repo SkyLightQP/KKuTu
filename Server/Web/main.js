@@ -68,7 +68,7 @@ Server.use(Express.static(__dirname + "/public"));
 Server.use(Parser.urlencoded({ extended: true }));
 Server.use(Exession({
 	store: new Redission({
-		client: Redis.createClient(),
+		client: Redis.createClient(GLOBAL.REDIS_PORT, GLOBAL.REDIS_HOST),
 		ttl: 3600 * 12
 	}),
 	secret: 'kkutu',
