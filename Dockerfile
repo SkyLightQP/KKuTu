@@ -9,6 +9,6 @@ RUN npm install pm2 -g
 RUN cd Server && \
     npm install
 
-VOLUME ["/Server/sub/config"]
+VOLUME ["/workspace/Server/sub/config"]
 
 CMD ["pm2-runtime", "start", "kkutu.json"]
