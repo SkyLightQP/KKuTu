@@ -33,7 +33,7 @@ const DB = require("./db");
 //볕뉘 수정 구문삭제 (28)
 const JLog = require("../sub/jjlog");
 const WebInit = require("../sub/webinit");
-const GLOBAL = require("../sub/global.json");
+const GLOBAL = require("../sub/config/global.json");
 //볕뉘 수정
 const passport = require('passport');
 //볕뉘 수정 끝
@@ -53,7 +53,7 @@ var page = WebInit.page;
 var gameServers = [];
 
 // 웹서버 포트
-const port = 9090;
+const port = 80;
 
 WebInit.MOBILE_AVAILABLE = [
 	"portal", "main", "kkutu"
@@ -68,7 +68,7 @@ Server.use(Express.static(__dirname + "/public"));
 Server.use(Parser.urlencoded({ extended: true }));
 Server.use(Exession({
 	store: new Redission({
-		client: Redis.createClient(),
+		client: Redis.createClient(GLOBAL.REDIS_PORT, GLOBAL.REDIS_HOST),
 		ttl: 3600 * 12
 	}),
 	secret: 'kkutu',

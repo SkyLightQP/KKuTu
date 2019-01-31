@@ -117,7 +117,7 @@
 	},
 	"kkutu": {
 		"title": "끄투닷컴",
-		"version": "1.0.2.2",
+		"version": "1.0.2.4",
 		
 		"meta_desc": "학교에서 배운 국어와 영어! 끄투닷컴에서 활용해보세요!",
 		"meta_keys": "끄투닷컴,kkutuclub,끄투,kkutu,끝말잇기,끄투닷컴,쿵쿵따,영어끝말잇기,영어쿵쿵따,시리토리,끝말잇기사이트,자음퀴즈,초성퀴즈,자퀴,십자말풀이,가로세로,타자,타자연습,앞말잇기",
@@ -149,11 +149,11 @@
 		"serverEnter": "접속",
 		
 		"websocketUnsupport": "본 게임은 Internet Explorer(10), 크롬(16), 파이어폭스(11), 오페라(12.1), 사파리(6) 이상의 버전에서 지원합니다!<br>브라우저를 업데이트해 주세요.",
-		"dictionarySupport": "사전 정보 제공:<a href='http://wordnet.princeton.edu' target='_blank'>WordNet</a><br><label style='color: #777777;'>WordNet 3.0 Copyright 2006 by Princeton University. All rights reserved.</label> <br><label style='color: #777777;'>Icons made by <a href='https://www.flaticon.com/authors/pixel-perfect'>Pixel perfect</a> from <a href='https://www.flaticon.com/'>www.flaticon.com</a> is licensed by <a href='http://creativecommons.org/licenses/by/3.0/' target='_blank'>CC 3.0 BY</a><br>Icons made by <a href='https://www.flaticon.com/authors/smashicons'>Smashicons</a> from <a href='https://www.flaticon.com/'>www.flaticon.com</a> is licensed by <a href='http://creativecommons.org/licenses/by/3.0/' target='_blank'>CC 3.0 BY</a></label>",
+		"dictionarySupport": "사전 정보 제공:<a href='http://wordnet.princeton.edu' target='_blank'>WordNet</a><br><label style='color: #777777;'>WordNet 3.0 Copyright 2006 by Princeton University. All rights reserved.</label>",
+		"designCredit": "　",
 		"sandbox": "샌드박스",
 		"discord": "디스코드",
 		"satskkutu": "사츠메가네끄투 S.2",
-		"worldkkutu": "끄투월드 온라인",
 		"etcSupport": "문의: admin@skylightqp.kr",
 		"welcome": "환영합니다.",
 		"welcomeTestServer": "테스트 서버에 접속했습니다. 본 서버는 특별한 공지 없이 폭발하거나 닫힐 수 있습니다.",
