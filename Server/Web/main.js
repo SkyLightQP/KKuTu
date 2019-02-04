@@ -143,7 +143,7 @@ DB.ready = function(){
 Const.MAIN_PORTS.forEach(function(v, i){
 	var KEY = process.env['WS_KEY'];
 	var protocol;
-	if(Const.IS_SECURED) {
+	if(Const.NGINX_SSL) {
 		protocol = 'wss';
 	} else {
 		protocol = 'ws';

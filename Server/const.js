@@ -32,6 +32,7 @@ exports.TESTER = GLOBAL.ADMIN.concat([
 ]);
 exports.IS_SECURED = GLOBAL.IS_SECURED;
 exports.SSL_OPTIONS = GLOBAL.SSL_OPTIONS;
+exports.NGINX_SSL = GLOBAL.NGINX_SSL;
 exports.OPTIONS = {
 	'man': { name: "Manner" },
 	'ext': { name: "Injeong" },

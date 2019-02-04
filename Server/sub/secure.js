@@ -25,7 +25,6 @@ const Const = require('../const')
 
 module.exports = () => {
     const options = {};
-    /*
     if(Const.SSL_OPTIONS.isPFX == true) {
         options.pfx = File.readFileSync(Const.SSL_OPTIONS.PFX);
     } else {
@@ -34,7 +33,6 @@ module.exports = () => {
         if(Const.SSL_OPTIONS.isCA == true) {
             options.ca = File.readFileSync(Const.SSL_OPTIONS.CA);
         }
-    }*/
-    // SSL을(를) nginx에 단에서 적용하므로 끄투 자체에서 적용해줄 필요가 없음.
+    }
     return options;
 }
