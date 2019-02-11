@@ -148,7 +148,7 @@ Const.MAIN_PORTS.forEach(function(v, i){
 	} else {
 		protocol = 'ws';
 	}
-	gameServers[i] = new GameClient(KEY, `${protocol}://127.0.0.2:${v}/${KEY}`);
+	gameServers[i] = new GameClient(KEY, `wss://127.0.0.2:${v}/${KEY}`);
 });
 function GameClient(id, url){
 	var my = this;
