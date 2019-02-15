@@ -22,6 +22,5 @@
 		"PFX": "",
 		"isPFX": false,
 		"isCA": false
-	},
-	"ONLY_WS_SSL": true
+	}
 }

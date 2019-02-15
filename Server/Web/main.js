@@ -139,7 +139,7 @@ DB.ready = function(){
 		}
 	});
 	Server.listen(port);
-	if(Const.IS_SECURED && !Const.ONLY_WS_SSL) {
+	if(Const.IS_SECURED) {
 		const options = Secure();
 		https.createServer(options, Server).listen(443);
 	}
