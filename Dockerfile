@@ -10,5 +10,6 @@ RUN cd Server && \
     npm install
 
 VOLUME ["/workspace/Server/sub/config"]
+VOLUME ["/workspace/ssl"]
 
 CMD ["pm2-runtime", "start", "kkutu.json"]
