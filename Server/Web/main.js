@@ -139,11 +139,15 @@ DB.ready = function(){
 		}
 	});
 	Server.listen(port);
+	if(Const.IS_SECURED && !Const.ONLY_WS_SSL) {
+		const options = Secure();
+		https.createServer(options, Server).listen(443);
+	}
 };
 Const.MAIN_PORTS.forEach(function(v, i){
 	var KEY = process.env['WS_KEY'];
 	var protocol;
-	if(Const.NGINX_SSL) {
+	if(Const.IS_SECURED) {
 		protocol = 'wss';
 	} else {
 		protocol = 'ws';

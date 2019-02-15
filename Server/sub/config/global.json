@@ -14,7 +14,7 @@
 	"GOOGLE_RECAPTCHA_TO_USER": false,
 	"GOOGLE_RECAPTCHA_SITE_KEY": "",
 	"GOOGLE_RECAPTCHA_SECRET_KEY": "",
-	"IS_SECURED": false,
+	"IS_SECURED": true,
 	"SSL_OPTIONS": {
 		"PRIVKEY": "",
 		"CERT": "",
@@ -23,5 +23,5 @@
 		"isPFX": false,
 		"isCA": false
 	},
-	"NGINX_SSL": true
+	"ONLY_WS_SSL": true
 }
