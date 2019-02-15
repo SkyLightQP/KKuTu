@@ -10,6 +10,6 @@ RUN cd Server && \
     npm install
 
 VOLUME ["/workspace/Server/sub/config"]
-VOLUME ["/workspace/Server/Web/public/config"]
+VOLUME ["/workspace/Server/Web/public/global_notice.html"]
 
 CMD ["pm2-runtime", "start", "kkutu.json"]
