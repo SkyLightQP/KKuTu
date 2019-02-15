@@ -30,13 +30,10 @@ const Parser = require("body-parser");
 const DDDoS = require("dddos");
 const Server = Express();
 const DB = require("./db");
-//볕뉘 수정 구문삭제 (28)
 const JLog = require("../sub/jjlog");
 const WebInit = require("../sub/webinit");
-const GLOBAL = require("../sub/global.json");
-//볕뉘 수정
+const GLOBAL = require("../sub/config/global.json");
 const passport = require('passport');
-//볕뉘 수정 끝
 const Const	= require("../const");
 const https	= require('https');
 
@@ -44,16 +41,14 @@ var Language = {
 	'ko_KR': require("./lang/ko_KR.json"),
 	'en_US': require("./lang/en_US.json")
 };
-//볕뉘 수정
 var ROUTES = [
 	"major", "consume", "admin", "login"
 ];
-//볕뉘 수정 끝
 var page = WebInit.page;
 var gameServers = [];
 
 // 웹서버 포트
-const port = 9090;
+const port = 80;
 
 WebInit.MOBILE_AVAILABLE = [
 	"portal", "main", "kkutu"
@@ -68,14 +63,14 @@ Server.use(Express.static(__dirname + "/public"));
 Server.use(Parser.urlencoded({ extended: true }));
 Server.use(Exession({
 	store: new Redission({
-		client: Redis.createClient(),
+		client: Redis.createClient(GLOBAL.REDIS_PORT, GLOBAL.REDIS_HOST),
 		ttl: 3600 * 12
 	}),
 	secret: 'kkutu',
 	resave: false,
 	saveUninitialized: true
 }));
-//볕뉘 수정
+
 Server.use(passport.initialize());
 Server.use(passport.session());
 Server.use((req, res, next) => {
@@ -96,7 +91,6 @@ Server.use((req, res, next) => {
 		next();
 	}
 });
-//볕뉘 수정 끝
 /* use this if you want
 
 DDDoS = new DDDoS({
@@ -146,8 +140,8 @@ DB.ready = function(){
 	});
 	Server.listen(port);
 	if(Const.IS_SECURED) {
-		const options = secure();
-		https.createServer(options, Server).listen(9090);
+		const options = Secure();
+		https.createServer(options, Server).listen(443);
 	}
 };
 Const.MAIN_PORTS.forEach(function(v, i){

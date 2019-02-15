@@ -23,7 +23,7 @@ var https = require('https');
 var HTTPS_Server;
 // var Heapdump = require("heapdump");
 var KKuTu = require('./kkutu');
-var GLOBAL = require("../sub/global.json");
+var GLOBAL = require("../sub/config/global.json");
 var Const = require("../const");
 var JLog = require('../sub/jjlog');
 var Secure = require('../sub/secure');
