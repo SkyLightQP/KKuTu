@@ -1,6 +1,6 @@
 {
 	"ADMIN": [ "" ],
-	"MAIN_PORTS": [ 0 ],
+	"MAIN_PORTS": [ ],
 	"KKUTUHOT_PATH": "",
 	"PASS":"",
 	"PG_USER": "",
@@ -14,7 +14,7 @@
 	"GOOGLE_RECAPTCHA_TO_USER": false,
 	"GOOGLE_RECAPTCHA_SITE_KEY": "",
 	"GOOGLE_RECAPTCHA_SECRET_KEY": "",
-	"IS_SECURED": true,
+	"IS_SECURED": false,
 	"SSL_OPTIONS": {
 		"PRIVKEY": "",
 		"CERT": "",
