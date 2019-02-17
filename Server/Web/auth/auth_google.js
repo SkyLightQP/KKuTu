@@ -16,7 +16,7 @@ module.exports.strategyConfig = {
 }
 
 module.exports.authConfig = {
-    scope: ['profile', 'email', 'https://www.googleapis.com/auth/plus.login']
+    scope: ['profile', 'email']
 }
 
 module.exports.strategy = (process, MainDB, Ajae) => {
