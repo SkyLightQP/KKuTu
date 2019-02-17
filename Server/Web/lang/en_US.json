@@ -104,14 +104,14 @@
 	},
     "login": {
 		"title": "끄투닷컴 로그인",
-		"loginWith": "로그인 방법을 선택하세요.",
+		"loginWith": "끄투닷컴에 로그인하기",
 		"withNaver": "네이버 아이디로 로그인",
 		"withFacebook": "페이스북 아이디로 로그인",
 		"withGoogle": "구글 아이디로 로그인",
 		"withDiscord": "디스코드 아이디로 로그인",
 		"login_kkutu": "끄투닷컴에 로그인 하시면 모든 기능을 사용하실 수 있습니다!",
-		
-		"loginLegal": "로그인이 이루어지면 JJO.KR이 공지하는 <a href='/legal/agreement' target='_blank'>서비스 이용 약관</a> 및 <a href='/legal/privacy' target='_blank'>개인정보 취급 방침</a>에 동의하게 됩니다."
+
+		"loginLegal": "회원가입 또는 로그인 시 끄투닷컴 <a href='/privacy.html' target='_blank'>개인정보처리방침</a>에 동의하는 것으로 간주합니다."
 	},
 	"kkutu": {
 		"title": "끄투닷컴",
