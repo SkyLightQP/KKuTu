@@ -11,7 +11,8 @@ module.exports.config = {
 module.exports.strategyConfig = {
     clientID: config.github.clientID,
     clientSecret: config.github.clientSecret,
-    callbackURL: config.github.callbackURL
+    callbackURL: config.github.callbackURL,
+    passReqToCallback: true
 }
 
 module.exports.authConfig = {
