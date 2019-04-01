@@ -24,7 +24,7 @@
     "passport": "^0.4.0",
     "passport-discord": "^0.1.3",
     "passport-facebook": "^2.1.1",
-    "passport-github2": "^0.1.11",
+    "passport-github": "^1.1.0",
     "passport-google-oauth2": "^0.1.6",
     "passport-naver": "^1.0.6",
     "pg": "^6.1.2",

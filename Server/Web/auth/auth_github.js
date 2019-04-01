@@ -1,7 +1,7 @@
 const config = require('../../sub/config/auth.json');
 
 module.exports.config = {
-    strategy: require('passport-github2').Strategy,
+    strategy: require('passport-github').Strategy,
     color: '#333',
     fontColor: '#FFFFFF',
     vendor: 'github',
