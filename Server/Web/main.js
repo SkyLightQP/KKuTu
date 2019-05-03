@@ -241,10 +241,10 @@ Server.get("/", function(req, res){
 			'KO_THEME': Const.KO_THEME,
 			'EN_THEME': Const.EN_THEME,
 			'IJP_EXCEPT': Const.IJP_EXCEPT,
-			'ogImage': "http://kkutu.club/img/kkutu/logo.png",
-			'ogURL': "http://kkutu.club/",
-			'ogTitle': "글자로 놀자! 끄투닷컴",
-			'ogDescription': "학교에서 배운 국어, 영어로 놀아보자!"
+			'ogImage': "//kkutu.club/img/ogImage.png",
+			'ogURL': "https://kkutu.club/",
+			'ogTitle': "끄투닷컴 KKutuDotcom",
+			'ogDescription': "당신의 단어 실력은 어디까지?! 끄투닷컴에서 확인해보세요!"
 		});
 	}
 });
