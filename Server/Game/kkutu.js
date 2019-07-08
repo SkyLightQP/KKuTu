@@ -413,8 +413,14 @@ exports.Client = function(socket, profile, sid){
 			R.go({ result: 200 });
 		}else DB.users.findOne([ '_id', my.id ]).on(function($user){
 			var first = !$user;
-			var black = first ? "" : $user.black;
-			
+			var black = first ? "" : $user.black; // 사용자가 밴 상태라면 black 변수에는 DB black 칼럼의 값이 들어간다.
+			let blackDate;
+			if(black && $user.blackdate !== null || $user.blackdate === 0) { // black 상태이고 기간이 null 또는 0이 아니면 기간 밴이다.
+				blackDate = first ? "" : $user.blackdate; // blackDate 변수에는 DB blackdate 칼럼의 값이 들어간다. (즉, 밴 상태가 끝나는 기간의 UnixTime)
+			} else blackDate = false;
+
+			const nowUnixtime = Math.floor(Date.now() / 1000);
+
 			if(first) $user = { money: 0 };
 			if(black == "null") black = false;
 			if(black == "chat"){
@@ -447,7 +453,21 @@ exports.Client = function(socket, profile, sid){
 				my.checkExpire();
 				my.okgCount = Math.floor((my.data.playTime || 0) / PER_OKG);
 			}
-			if(black) R.go({ result: 444, black: black });
+			if(black && black !== 'false') { // black이 NULL이거나 false이면 밴 상태가 아니다.
+				console.log("A: 밴 상태");
+				if(blackDate) { // blackDate가 있으면 기간 밴이므로 기간도 확인하자. 아니라면 영구밴!
+					console.log("A: 기간밴 상태");
+					console.log("B: " + nowUnixtime  + " / C: " + blackDate);
+					if(nowUnixtime <= blackDate) { // 현재 UnixTime이 DB에 기록된 UnixTime보다 작다면 이는 아직 처벌 기간이 안 끝난 것이다.
+						console.log("A: 아직 기간밴 상태");
+						const nowDate = new Date(blackDate*1000);
+						const tz = nowDate.getTime() + (nowDate.getTimezoneOffset() * 60000) + (+9 * 3600000); // KST 표준시
+						nowDate.setTime(tz);
+						const editedBlack = black + "\n처벌 해제 날짜 : " + nowDate.toLocaleString();
+						R.go({ result: 444, black: editedBlack });
+					} else R.go({ result: 200 });
+				} else R.go({ result: 444, black: black });
+			}
 			else if(Cluster.isMaster && $user.server) R.go({ result: 409, black: $user.server });
 			else if(exports.NIGHT && my.isAjae === false) R.go({ result: 440 });
 			else R.go({ result: 200 });
