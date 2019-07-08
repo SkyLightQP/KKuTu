@@ -457,9 +457,7 @@ exports.Client = function(socket, profile, sid){
 				if(blackDate) { // blackDate가 있으면 기간 밴이므로 기간도 확인하자. 아니라면 영구밴!
 					if(nowUnixtime <= blackDate) { // 현재 UnixTime이 DB에 기록된 UnixTime보다 작다면 이는 아직 처벌 기간이 안 끝난 것이다.
 						const nowDate = new Date(blackDate*1000);
-						const tz = nowDate.getTime() + (nowDate.getTimezoneOffset() * 60000) + (+9 * 3600000); // KST 표준시
-						nowDate.setTime(tz);
-						const editedBlack = black + "\n처벌 해제 날짜 : " + nowDate.toLocaleString();
+						const editedBlack = black + "\n처벌 해제 날짜: " + nowDate.toLocaleString();
 						R.go({ result: 444, black: editedBlack });
 					} else R.go({ result: 200 });
 				} else R.go({ result: 444, black: black });
