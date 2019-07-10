@@ -3,7 +3,7 @@
  */
 
 const request = require('request');
-const GLOBAL = require("./global.json");
+const GLOBAL = require("../sub/config/global.json");
 
 exports.verifyRecaptcha = function (responseToken, remoteIp, callback) {
     const verifyUrl = `https://google.com/recaptcha/api/siteverify?secret=${GLOBAL.GOOGLE_RECAPTCHA_SECRET_KEY}&response=${responseToken}&remoteip=${remoteIp}`;
