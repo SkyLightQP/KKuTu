@@ -453,6 +453,7 @@ exports.Client = function(socket, profile, sid){
 				my.checkExpire();
 				my.okgCount = Math.floor((my.data.playTime || 0) / PER_OKG);
 			}
+
 			if(black && black !== 'false') { // black이 NULL이거나 false이면 밴 상태가 아니다.
 				if(blackDate) { // blackDate가 있으면 기간 밴이므로 기간도 확인하자. 아니라면 영구밴!
 					if(nowUnixtime <= blackDate) { // 현재 UnixTime이 DB에 기록된 UnixTime보다 작다면 이는 아직 처벌 기간이 안 끝난 것이다.

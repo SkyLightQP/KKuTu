@@ -346,6 +346,19 @@ exports.init = function(_SID, CHAN){
 					return;
 				}
 				$c.refresh().then(function(ref){
+					let ip = $c.socket._socket.remoteAddress;
+					MainDB.ipbans.findOne([ 'ip', ip ]).on((res) => {
+						if(res !== undefined) {
+							const reason = res.reason !== null ? res.reason : "사유 없음";
+							JLog.info("IP 차단된 사용자가 입장을 시도하였습니다. IP: " + ip);
+							$c.send('error', {
+								code: 444, message: "당신은 영구정지된 사용자입니다.\n사유: " + reason
+							});
+							$c._error = 444;
+							$c.socket.close();
+						}
+					});
+
 					if(ref.result == 200){
 						DIC[$c.id] = $c;
 						DNAME[($c.profile.title || $c.profile.name).replace(/\s/g, "")] = $c.id;
