@@ -412,10 +412,10 @@ exports.Client = function(socket, profile, sid){
 			
 			R.go({ result: 200 });
 		}else DB.users.findOne([ '_id', my.id ]).on(function($user){
-			var first = !$user;
-			var black = first ? "" : $user.black; // 사용자가 밴 상태라면 black 변수에는 DB black 칼럼의 값이 들어간다.
+			let first = !$user;
+			let black = first ? "" : $user.black; // 사용자가 밴 상태라면 black 변수에는 DB black 칼럼의 값이 들어간다.
 			let blackDate;
-			if(black && $user.blackdate !== null || $user.blackdate === 0) { // black 상태이고 기간이 null 또는 0이 아니면 기간 밴이다.
+			if(black && ($user.blackdate !== null || $user.blackdate !== 0)) { // black 상태이고 기간이 null 또는 0이 아니면 기간 밴이다.
 				blackDate = first ? "" : $user.blackdate; // blackDate 변수에는 DB blackdate 칼럼의 값이 들어간다. (즉, 밴 상태가 끝나는 기간의 UnixTime)
 			} else blackDate = false;
 
