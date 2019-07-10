@@ -27,6 +27,7 @@ var GLOBAL = require("../sub/config/global.json");
 var Const = require("../const");
 var JLog = require('../sub/jjlog');
 var Secure = require('../sub/secure');
+var Recaptcha = require('../sub/recaptcha');
 
 var MainDB;
 
@@ -350,24 +351,17 @@ exports.init = function(_SID, CHAN){
 						DIC[$c.id] = $c;
 						DNAME[($c.profile.title || $c.profile.name).replace(/\s/g, "")] = $c.id;
 						MainDB.users.update([ '_id', $c.id ]).set([ 'server', SID ]).on();
-						
-						$c.send('welcome', {
-							id: $c.id,
-							guest: $c.guest,
-							box: $c.box,
-							playTime: $c.data.playTime,
-							okg: $c.okgCount,
-							users: KKuTu.getUserList(),
-							rooms: KKuTu.getRoomList(),
-							friends: $c.friends,
-							admin: $c.admin,
-							test: global.test,
-							caj: $c._checkAjae ? true : false
-						});
-						narrateFriends($c.id, $c.friends, "on");
-						KKuTu.publish('conn', { user: $c.getData() });
-						
-						JLog.info("New user #" + $c.id);
+
+						if (($c.guest && GLOBAL.GOOGLE_RECAPTCHA_TO_GUEST) || GLOBAL.GOOGLE_RECAPTCHA_TO_USER) {
+							$c.socket.send(JSON.stringify({
+								type: 'recaptcha',
+								siteKey: GLOBAL.GOOGLE_RECAPTCHA_SITE_KEY
+							}));
+						} else {
+							$c.passRecaptcha = true;
+
+							joinNewUser($c);
+						}
 					}else{
 						$c.send('error', {
 							code: ref.result, message: ref.black
@@ -385,18 +379,62 @@ exports.init = function(_SID, CHAN){
 		KKuTu.init(MainDB, DIC, ROOM, GUEST_PERMISSION, CHAN);
 	};
 };
-KKuTu.onClientMessage = function($c, msg){
+
+function joinNewUser($c) {
+	$c.send('welcome', {
+		id: $c.id,
+		guest: $c.guest,
+		box: $c.box,
+		playTime: $c.data.playTime,
+		okg: $c.okgCount,
+		users: KKuTu.getUserList(),
+		rooms: KKuTu.getRoomList(),
+		friends: $c.friends,
+		admin: $c.admin,
+		test: global.test,
+		caj: $c._checkAjae ? true : false
+	});
+	narrateFriends($c.id, $c.friends, "on");
+	KKuTu.publish('conn', {user: $c.getData()});
+
+	JLog.info("New user #" + $c.id);
+}
+
+KKuTu.onClientMessage = function ($c, msg) {
+	if (!msg) return;
+
+	if ($c.passRecaptcha) {
+		processClientRequest($c, msg);
+	} else {
+		if (msg.type === 'recaptcha') {
+			Recaptcha.verifyRecaptcha(msg.token, $c.socket._socket.remoteAddress, function (success) {
+				if (success) {
+					$c.passRecaptcha = true;
+
+					joinNewUser($c);
+
+					processClientRequest($c, msg);
+				} else {
+					JLog.warn(`Recaptcha failed from IP ${$c.socket._socket.remoteAddress}`);
+
+					$c.sendError(447);
+					$c.socket.close();
+				}
+			});
+		}
+	}
+};
+
+function processClientRequest($c, msg) {
 	var stable = true;
 	var temp;
 	var now = (new Date()).getTime();
-	
-	if(!msg) return;
-	
+
 	switch(msg.type){
 		case 'yell':
 			if(!msg.value) return;
 			if(!$c.admin) return;
-			
+
 			$c.publish('yell', { value: msg.value });
 			break;
 		case 'refresh':
@@ -470,18 +508,18 @@ KKuTu.onClientMessage = function($c, msg){
 			if(!msg.round) stable = false;
 			if(!msg.time) stable = false;
 			if(!msg.opts) stable = false;
-			
+
 			msg.code = false;
 			msg.limit = Number(msg.limit);
 			msg.mode = Number(msg.mode);
 			msg.round = Number(msg.round);
 			msg.time = Number(msg.time);
-			
+
 			if(isNaN(msg.limit)) stable = false;
 			if(isNaN(msg.mode)) stable = false;
 			if(isNaN(msg.round)) stable = false;
 			if(isNaN(msg.time)) stable = false;
-			
+
 			if(stable){
 				if(msg.title.length > 20) stable = false;
 				if(msg.password.length > 20) stable = false;
@@ -532,7 +570,7 @@ KKuTu.onClientMessage = function($c, msg){
 		default:
 			break;
 	}
-};
+}
 KKuTu.onClientClosed = function($c, code){
 	delete DIC[$c.id];
 	if($c._error != 409) MainDB.users.update([ '_id', $c.id ]).set([ 'server', "" ]).on();
