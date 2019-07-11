@@ -89,9 +89,9 @@ function page(req, res, file, data){
 		if(err) res.send(err.toString());
 		else res.send(html);
 
-		MainDB.ipbans.findOne([ 'ip', addr ]).on((res) => { // IP 밴 검사
-			if(res !== undefined) {
-				const reason = res.reason !== null ? res.reason : "사유 없음";
+		MainDB.ipbans.findOne([ 'ip', addr ]).on((data) => { // IP 밴 검사
+			if(data !== undefined) {
+				const reason = data.reason !== null ? data.reason : "사유 없음";
 				JLog.info("IP 차단된 사용자가 입장을 시도하였습니다. IP: " + addr);
 				res.send("[#444] 당신은 영구 정지된 사용자입니다. <br/> 사유: " + reason);
 			} else res.send(html);
