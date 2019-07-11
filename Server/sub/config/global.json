@@ -22,5 +22,6 @@
 		"PFX": "",
 		"isPFX": false,
 		"isCA": false
-	}
+	},
+	"SESSION_SECRET": ""
 }

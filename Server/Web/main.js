@@ -59,7 +59,7 @@ require("../sub/checkpub");
 JLog.info("<< KKuTu Web >>");
 Server.set('views', __dirname + "/views");
 Server.set('view engine', "pug");
-Server.set('trust proxy', true)
+Server.set('trust proxy', true);
 Server.use(Express.static(__dirname + "/public"));
 Server.use(Parser.urlencoded({ extended: true }));
 Server.use(Exession({
@@ -67,7 +67,7 @@ Server.use(Exession({
 		client: Redis.createClient(GLOBAL.REDIS_PORT, GLOBAL.REDIS_HOST),
 		ttl: 3600 * 12
 	}),
-	secret: 'kkutu',
+	secret: GLOBAL.SESSION_SECRET,
 	resave: false,
 	saveUninitialized: true
 }));
@@ -179,7 +179,6 @@ function GameClient(id, url){
 		delete my.socket;
 	});
 	my.socket.on('message', function(data){
-		var _data = data;
 		var i;
 		
 		data = JSON.parse(data);
