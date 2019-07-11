@@ -59,6 +59,7 @@ require("../sub/checkpub");
 JLog.info("<< KKuTu Web >>");
 Server.set('views', __dirname + "/views");
 Server.set('view engine', "pug");
+Server.set('trust proxy', true)
 Server.use(Express.static(__dirname + "/public"));
 Server.use(Parser.urlencoded({ extended: true }));
 Server.use(Exession({
