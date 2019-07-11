@@ -27,7 +27,7 @@ const Exession = require("express-session");
 const Redission = require("connect-redis")(Exession);
 const Redis	= require("redis");
 const Parser = require("body-parser");
-const DDDoS = require("dddos");
+// const DDDoS = require("dddos");
 const Server = Express();
 const DB = require("./db");
 const JLog = require("../sub/jjlog");
@@ -199,9 +199,10 @@ function GameClient(id, url){
 ROUTES.forEach(function(v){
 	require(`./routes/${v}`).run(Server, WebInit.page);
 });
+
 Server.get("/", function(req, res){
 	var server = req.query.server;
-	
+
 	//볕뉘 수정 구문삭제(220~229, 240)
 	DB.session.findOne([ '_id', req.session.id ]).on(function($ses){
 		// var sid = (($ses || {}).profile || {}).sid || "NULL";
@@ -213,6 +214,7 @@ Server.get("/", function(req, res){
 			onFinish($ses);
 		}
 	});
+
 	function onFinish($doc){
 		var id = req.session.id;
 		
