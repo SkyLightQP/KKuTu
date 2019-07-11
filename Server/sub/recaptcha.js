@@ -1,7 +1,6 @@
 /**
  * Created by horyu1234 on 2017-11-14.
  */
-
 const request = require('request');
 const GLOBAL = require("../sub/config/global.json");
 

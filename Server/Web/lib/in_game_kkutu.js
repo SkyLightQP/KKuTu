@@ -4769,5 +4769,4 @@ function yell(msg){
  */
 
 delete window.WebSocket;
-delete window.setTimeout;
 delete window.setInterval;

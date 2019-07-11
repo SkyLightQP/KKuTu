@@ -17,5 +17,4 @@
  */
 
 delete window.WebSocket;
-delete window.setTimeout;
 delete window.setInterval;
