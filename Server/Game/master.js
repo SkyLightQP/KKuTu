@@ -16,31 +16,32 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-var Cluster = require("cluster");
-var File = require('fs');
-var WebSocket = require('ws');
-var https = require('https');
-var HTTPS_Server;
+const Cluster = require("cluster");
+const File = require('fs');
+const WebSocket = require('ws');
+const https = require('https');
+let HTTPS_Server;
 // var Heapdump = require("heapdump");
-var KKuTu = require('./kkutu');
-var GLOBAL = require("../sub/config/global.json");
-var Const = require("../const");
-var JLog = require('../sub/jjlog');
-var Secure = require('../sub/secure');
-var Recaptcha = require('../sub/recaptcha');
+const KKuTu = require('./kkutu');
+const GLOBAL = require("../sub/config/global.json");
+const Const = require("../const");
+const JLog = require('../sub/jjlog');
+const Secure = require('../sub/secure');
+const Recaptcha = require('../sub/recaptcha');
+const Ban = require('./ban');
 
-var MainDB;
+let MainDB;
 
-var Server;
-var DIC = {};
-var DNAME = {};
-var ROOM = {};
+let Server;
+let DIC = {};
+let DNAME = {};
+let ROOM = {};
 
-var T_ROOM = {};
-var T_USER = {};
+let T_ROOM = {};
+let T_USER = {};
 
-var SID;
-var WDIC = {};
+let SID;
+let WDIC = {};
 
 const DEVELOP = exports.DEVELOP = global.test || false;
 const GUEST_PERMISSION = exports.GUEST_PERMISSION = {
@@ -381,6 +382,10 @@ exports.init = function(_SID, CHAN){
 };
 
 function joinNewUser($c) {
+	if(Ban.checkIPBan($c.socket._socket.remoteAddress)) { // WebSocket 요청으로 들어온 IP가 밴 대상이면
+		return; // 그냥 끝내버리자
+	}
+
 	$c.send('welcome', {
 		id: $c.id,
 		guest: $c.guest,
@@ -397,7 +402,7 @@ function joinNewUser($c) {
 	narrateFriends($c.id, $c.friends, "on");
 	KKuTu.publish('conn', {user: $c.getData()});
 
-	JLog.info("New user #" + $c.id);
+	JLog.info(`${$c.socket._socket.remoteAddress} @ New user # ${$c.id}`);
 }
 
 KKuTu.onClientMessage = function ($c, msg) {
