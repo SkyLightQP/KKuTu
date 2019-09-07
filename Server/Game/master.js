@@ -28,7 +28,7 @@ const Const = require("../const");
 const JLog = require('../sub/jjlog');
 const Secure = require('../sub/secure');
 const Recaptcha = require('../sub/recaptcha');
-const Ban = require('./ban');
+const Ban = require('../sub/ban');
 
 let MainDB;
 
