@@ -423,7 +423,7 @@ exports.Client = function(socket, profile, sid){
 
 			if(first) $user = { money: 0 };
 			if(black == "null") black = false;
-			if(black == "chat"){
+			if(black == "chat"){ // 플레이어 뮤트
 				black = false;
 				my.noChat = true;
 			}

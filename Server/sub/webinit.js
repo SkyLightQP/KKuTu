@@ -22,7 +22,7 @@ var Language = {
 	'ko_KR': require("../Web/lang/ko_KR.json"),
 	'en_US': require("../Web/lang/en_US.json")
 };
-const MainDB = require('../Web/db');
+const Ban = require('./ban');
 
 function updateLanguage(){
 	var i, src;
@@ -89,13 +89,7 @@ function page(req, res, file, data){
 		if(err) {
 			res.send(err.toString());
 		} else {
-			MainDB.ipbans.findOne(['ip', addr]).on((data) => { // IP 밴 검사
-				if (data !== undefined) {
-					const reason = data.reason !== null ? data.reason : "사유 없음";
-					JLog.info("IP 차단된 사용자가 입장을 시도하였습니다. IP: " + addr);
-					res.send("[#444] 당신은 영구 정지된 사용자입니다. <br/> 사유: " + reason);
-				} else res.send(html);
-			});
+			Ban.noticeBan(res, addr, html);
 		}
 	});
 }
