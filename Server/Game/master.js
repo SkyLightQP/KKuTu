@@ -584,5 +584,5 @@ KKuTu.onClientClosed = function($c, code){
 	if($c.friends) narrateFriends($c.id, $c.friends, "off");
 	KKuTu.publish('disconn', { id: $c.id });
 
-	JLog.alert("Exit #" + $c.id);
+	JLog.alert(`IP: ${$c.socket._socket.remoteAddress} Exit #${$c.id}`);
 };

@@ -396,5 +396,5 @@ KKuTu.onClientClosed = function($c, code){
 	if($c.socket) $c.socket.removeAllListeners();
 	KKuTu.publish('disconnRoom', { id: $c.id });
 
-	JLog.alert(`Chan @${CHAN} Exit #${$c.id}`);
+	JLog.alert(`IP: ${$c.socket._socket.remoteAddress} Chan @${CHAN} Exit #${$c.id}`);
 };
