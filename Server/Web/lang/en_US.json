@@ -111,7 +111,7 @@
 		"withDiscord": "디스코드 아이디로 로그인",
 		"login_kkutu": "끄투닷컴에 로그인 하시면 모든 기능을 사용하실 수 있습니다!",
 
-		"loginLegal": "회원가입 또는 로그인 시 끄투닷컴 <a href='/privacy.html' target='_blank'>개인정보처리방침</a>에 동의하는 것으로 간주합니다."
+		"loginLegal": "회원가입 또는 로그인 시 끄투닷컴 <a href='/privacy.html' target='_blank'>개인정보처리방침</a> 및 <a href='/policy.html' target='_blank'>이용약관</a>에 동의하는 것으로 간주합니다."
 	},
 	"kkutu": {
 		"title": "끄투닷컴",
