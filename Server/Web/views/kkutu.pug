@@ -1,17 +1,17 @@
 //-
 	Rule the words! KKuTu Online
 	Copyright (C) 2017 JJoriping(op@jjo.kr)
-	
+
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 3 of the License, or
 	(at your option) any later version.
-	
+
 	This program is distributed in the hope that it will be useful,
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	GNU General Public License for more details.
-	
+
 	You should have received a copy of the GNU General Public License
 	along with this program. If not, see <http://www.gnu.org/licenses/>.
 extends layout
@@ -22,7 +22,7 @@ mixin Dialog(id, w, h, t, nocls)
 			div.dialog-title(style=`width: ${w - 20}px;`)!= t || ''
 		div.dialog-body(style='font-size: 13px;')
 			block
-	
+
 mixin GameOption(key, prefix)
 	- var name = locals.OPTIONS[key].name;
 	- var sid = name.toLowerCase();
@@ -46,7 +46,7 @@ block JS
 
 block CSS
 	link(rel='stylesheet', href='/css/in_game_kkutu_shop.css')
-	
+
 block Jungle
 	span#PUBLIC= PUBLIC ? "true" : undefined
 	// span#PORT= locals.PORT
@@ -451,6 +451,9 @@ block Middle
 		div#Chat
 		input#Talk(maxlength=200)
 		button#ChatBtn= L('send')
+	+Product('AD')
+		ins.kakao_ad_area(style='display:none;', data-ad-unit='DAN-1hrgf0wu211t0', data-ad-width='728', data-ad-height='90')
+		script(type='text/javascript', src='//t1.daumcdn.net/kas/static/ba.min.js', async='')
 
 block Bottom
 	div.bottom-legal!= L('dictionarySupport')
