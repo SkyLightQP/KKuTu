@@ -382,7 +382,8 @@ exports.init = function(_SID, CHAN){
 };
 
 function joinNewUser($c) {
-	if(Ban.checkIPBan($c.socket._socket.remoteAddress)) { // WebSocket 요청으로 들어온 IP가 밴 대상이면
+	const ip = $c.socket.upgradeReq.connection.remoteAddress;
+	if(Ban.checkIPBan(ip)) { // WebSocket 요청으로 들어온 IP가 밴 대상이면
 		return; // 그냥 끝내버리자
 	}
 
@@ -402,7 +403,7 @@ function joinNewUser($c) {
 	narrateFriends($c.id, $c.friends, "on");
 	KKuTu.publish('conn', {user: $c.getData()});
 
-	JLog.info(`${$c.socket._socket.remoteAddress} @ New user # ${$c.id}`);
+	JLog.info(`@${ip} New user # ${$c.id}`);
 }
 
 KKuTu.onClientMessage = function ($c, msg) {
@@ -412,7 +413,7 @@ KKuTu.onClientMessage = function ($c, msg) {
 		processClientRequest($c, msg);
 	} else {
 		if (msg.type === 'recaptcha') {
-			Recaptcha.verifyRecaptcha(msg.token, $c.socket._socket.remoteAddress, function (success) {
+			Recaptcha.verifyRecaptcha(msg.token, $c.socket.upgradeReq.connection.remoteAddress, function (success) {
 				if (success) {
 					$c.passRecaptcha = true;
 
@@ -420,7 +421,7 @@ KKuTu.onClientMessage = function ($c, msg) {
 
 					processClientRequest($c, msg);
 				} else {
-					JLog.warn(`Recaptcha failed from IP ${$c.socket._socket.remoteAddress}`);
+					JLog.warn(`Recaptcha failed from IP ${$c.socket.upgradeReq.connection.remoteAddress}`);
 
 					$c.sendError(447);
 					$c.socket.close();
@@ -584,5 +585,5 @@ KKuTu.onClientClosed = function($c, code){
 	if($c.friends) narrateFriends($c.id, $c.friends, "off");
 	KKuTu.publish('disconn', { id: $c.id });
 
-	JLog.alert(`IP: ${$c.socket._socket.remoteAddress} Exit #${$c.id}`);
+	JLog.alert(`@${$c.socket.upgradeReq.connection.remoteAddress} Exit #${$c.id}`);
 };

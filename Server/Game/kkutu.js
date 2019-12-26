@@ -285,7 +285,7 @@ exports.Client = function(socket, profile, sid){
 	socket.on('message', function(msg){
 		var data, room = ROOM[my.place];
 		
-		JLog.log(`Server @${channel} ID #${my.id} :: ${msg}`);
+		JLog.log(`@${socket.upgradeReq.connection.remoteAddress} Server ${channel} ID #${my.id} :: ${msg}`);
 		try{ data = JSON.parse(msg); }catch(e){ data = { error: 400 }; }
 		if(Cluster.isWorker) process.send({ type: "tail-report", id: my.id, chan: channel, place: my.place, msg: data.error ? msg : data });
 		

@@ -155,7 +155,7 @@ Server.on('connection', function(socket){
 				}else{ // 입장 실패
 					$c.socket.close();
 				}
-				JLog.info(`IP: ${$c.socket._socket.remoteAddress} Chan @${CHAN} New #${$c.id}`);
+				JLog.info(`@${$c.socket.upgradeReq.connection.remoteAddress} Chan @${CHAN} New #${$c.id}`);
 			}else{
 				$c.send('error', {
 					code: ref.result, message: ref.black
@@ -396,5 +396,5 @@ KKuTu.onClientClosed = function($c, code){
 	if($c.socket) $c.socket.removeAllListeners();
 	KKuTu.publish('disconnRoom', { id: $c.id });
 
-	JLog.alert(`IP: ${$c.socket._socket.remoteAddress} Chan @${CHAN} Exit #${$c.id}`);
+	JLog.alert(`@${$c.socket.upgradeReq.connection.remoteAddress} Chan @${CHAN} Exit #${$c.id}`);
 };
