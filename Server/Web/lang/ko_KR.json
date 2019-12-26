@@ -1,6 +1,6 @@
 {
 	"GLOBAL": {
-		"GPL": "<div style='color: #666;'>끄투닷컴KKutuDotcom Copyright (C) 2017-2019 하늘빛QP(me@skylightqp.kr)<br>이 프로그램은 제품에 대한 어떠한 형태의 보증도 제공되지 않습니다.<br>이 프로그램은 자유 소프트웨어이며 배포 규정을 만족시키는 조건 아래 자유롭게 재배포할 수 있습니다.<br>이에 대한 자세한 사항은 본 프로그램의 구현을 담은 다음 레포지토리에서 확인하십시오: <a target='_blank' href='https://github.com/SkyLightQP/KKuTuDotCom'>https://github.com/SkyLightQP/KKuTuDotCom</a></div>",
+		"GPL": "<div style='color: #666;'>끄투닷컴 (KKutuDotcom) Copyright (C) 2017-2020 하늘빛QP(me@skylightqp.kr)<br>이 프로그램은 제품에 대한 어떠한 형태의 보증도 제공되지 않습니다.<br>이 프로그램은 자유 소프트웨어이며 배포 규정을 만족시키는 조건 아래 자유롭게 재배포할 수 있습니다.<br>이에 대한 자세한 사항은 본 프로그램의 구현을 담은 다음 레포지토리에서 확인하십시오: <a target='_blank' href='https://github.com/SkyLightQP/KKuTuDotCom'>https://github.com/SkyLightQP/KKuTuDotCom</a></div>",
 
 		"CREATOR":	"개발자 블로그",
 		"HOME":		"FA{home}",
