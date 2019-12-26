@@ -1,6 +1,6 @@
 FROM node:10
 
-EXPOSE 80 1100 1200 1300 1516 1517 1616 1617 1716 1717
+EXPOSE 80 1100 1200 1300 1516 1517 1518 1616 1617 1618 1716 1717 1718
 
 COPY / /workspace
 WORKDIR /workspace
@@ -11,5 +11,6 @@ RUN cd Server && \
 
 VOLUME ["/workspace/Server/sub/config"]
 VOLUME ["/workspace/Server/Web/public/notice"]
+VOLUME ["/workspace/logs"]
 
 CMD ["pm2-runtime", "start", "kkutu.json"]
