@@ -1,3 +1,5 @@
 Server/node_modules
 
 .idea/
+
+logs/

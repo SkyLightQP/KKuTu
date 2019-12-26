@@ -16,42 +16,50 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-// 모듈 호출
+const log4js = require('log4js');
+const logConfig = require('./log4js.json');
+let logger;
 
-var colors = require('colors');
+exports.init = function() {
+	logger = log4js.getLogger();
+	log4js.configure(logConfig);
+	logger.level = 'ALL';
+};
 
-function callLog(text){
-	var date = new Date();
-	var o = {
-		year: 1900 + date.getYear(),
-		month: date.getMonth() + 1,
-		date: date.getDate(),
-		hour: date.getHours(),
-		minute: date.getMinutes(),
-		second: date.getSeconds()
-	}, i;
-	
-	for(i in o){
-		if(o[i] < 10) o[i] = "0"+o[i];
-		else o[i] = o[i].toString();
-	}
-	console.log("["+o.year+"-"+o.month+"-"+o.date+" "+o.hour+":"+o.minute+":"+o.second+"] "+text);
-}
+// legacy code
+// function callLog(text){
+// 	var date = new Date();
+// 	var o = {
+// 		year: 1900 + date.getYear(),
+// 		month: date.getMonth() + 1,
+// 		date: date.getDate(),
+// 		hour: date.getHours(),
+// 		minute: date.getMinutes(),
+// 		second: date.getSeconds()
+// 	}, i;
+//
+// 	for(i in o){
+// 		if(o[i] < 10) o[i] = "0"+o[i];
+// 		else o[i] = o[i].toString();
+// 	}
+// 	console.log("["+o.year+"-"+o.month+"-"+o.date+" "+o.hour+":"+o.minute+":"+o.second+"] "+text);
+// }
+
 exports.log = function(text){
-	callLog(text);
+	logger.info(text);
 };
 exports.info = function(text){
-	callLog(text.cyan);
+	logger.info(text);
 };
 exports.success = function(text){
-	callLog(text.green);
+	logger.info(text);
 };
 exports.alert = function(text){
-	callLog(text.yellow);
+	logger.warn(text);
 };
 exports.warn = function(text){
-	callLog(text.black.bgYellow);
+	logger.warn(text);
 };
 exports.error = function(text){
-	callLog(text.bgRed);
+	logger.error(text);
 };
