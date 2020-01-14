@@ -5,7 +5,7 @@
     },
     "default": {
       "type": "file",
-      "filename": "../logs/kkutudotcom.log",
+      "filename": "./logs/kkutudotcom.log",
       "pattern": "-yyyy-MM-dd",
       "maxLogSize": 524288,
       "backups": 10,
