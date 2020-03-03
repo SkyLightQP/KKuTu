@@ -245,7 +245,7 @@ Server.get("/", function(req, res){
 			'IJP_EXCEPT': Const.IJP_EXCEPT,
 			'ogImage': "//kkutu.club/img/ogImage.png",
 			'ogURL': "https://kkutu.club/",
-			'ogTitle': "끄투닷컴 KKutuDotcom",
+			'ogTitle': "끄투닷컴",
 			'ogDescription': "당신의 단어 실력은 어디까지?! 끄투닷컴에서 확인해보세요!"
 		});
 	}

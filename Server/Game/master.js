@@ -272,6 +272,9 @@ Cluster.on('message', function(worker, msg){
 			break;
 		case "axm:monitor":
 			break;
+		case "undefined":
+		case undefined:
+			break;
 		default:
 			JLog.warn(`Unhandled IPC message type: ${msg.type}`);
 	}
