@@ -153,7 +153,7 @@
 		"policy": "이용약관",
 		"websocketUnsupport": "본 게임은 Internet Explorer(10), 크롬(16), 파이어폭스(11), 오페라(12.1), 사파리(6) 이상의 버전에서 지원합니다!<br>브라우저를 업데이트해 주세요.",
 		"dictionarySupport": "사전 정보 제공:<a href='http://wordnet.princeton.edu' target='_blank'>WordNet</a><br><label style='color: #777777;'>WordNet 3.0 Copyright 2006 by Princeton University. All rights reserved.</label>",
-		"designCredit": "Icons made by Freepik, srip from www.flaticon.com",
+		"designCredit": " ",
 		"discord": "디스코드",
 		"facebook": "페이스북",
 		"etcSupport": "문의: admin@skylightqp.kr",
@@ -386,9 +386,7 @@
 		"theme_KMV": "한국 영화",
 		"theme_HDC": "함대 컬렉션",
 		"theme_HOS": "히어로즈 오브 더 스톰",
-		"theme_LANG": "언어",
 		"theme_LAW": "법률",
-		"theme_OLDP": "고적",
 		
 		"class_1": "명",
 		"class_2": "대명",
