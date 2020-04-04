@@ -50,8 +50,10 @@ block Middle
 		iframe(src='https://discordapp.com/widget?id=449776656656236565&theme=dark', width='350', height='500', allowtransparency='true', frameborder='0' style='float: right')
 	+separator(10)
 	+Product('AD')
-		ins.kakao_ad_area(style='display:none;', data-ad-unit='DAN-qxi8yfcmww8k', data-ad-width='728', data-ad-height='90')
-		script(type='text/javascript', src='//t1.daumcdn.net/kas/static/ba.min.js', async='')
+		// Google AdSense
+		script(async='', src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+		ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-2490453096003621', data-ad-slot='5452229975', data-ad-format='auto', data-full-width-responsive='true')
+		script.(adsbygoogle = window.adsbygoogle || []).push({});
 	+separator(10)
 	
 block Bottom
