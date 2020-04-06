@@ -1,24 +1,24 @@
 //-
 	Rule the words! KKuTu Online
 	Copyright (C) 2017 JJoriping(op@jjo.kr)
-	
+
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
 	the Free Software Foundation, either version 3 of the License, or
 	(at your option) any later version.
-	
+
 	This program is distributed in the hope that it will be useful,
 	but WITHOUT ANY WARRANTY; without even the implied warranty of
 	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 	GNU General Public License for more details.
-	
+
 	You should have received a copy of the GNU General Public License
 	along with this program. If not, see <http://www.gnu.org/licenses/>.
 extends layout
 
 block Subject
 	title= L('title')
-	
+
 block CSS
 	link(rel='stylesheet', href='/css/in_game_kkutu.css')
 
@@ -53,9 +53,10 @@ block Middle
 		// Google AdSense
 		script(async='', src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
 		ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-2490453096003621', data-ad-slot='5452229975', data-ad-format='auto', data-full-width-responsive='true')
-		script.(adsbygoogle = window.adsbygoogle || []).push({});
+		script.
+			(adsbygoogle = window.adsbygoogle || []).push({});
 	+separator(10)
-	
+
 block Bottom
 	div.bottom-legal!= L('dictionarySupport')
 	div.bottom-legal!= L('designCredit')
