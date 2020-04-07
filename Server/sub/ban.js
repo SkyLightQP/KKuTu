@@ -1,6 +1,14 @@
 const JLog = require("./jjlog");
 const MainDB = require('../Web/db');
 
+function checkIPBan(addr) {
+    MainDB.ipbans.findOne(['ip', addr]).on((data) => {
+        if (data !== undefined) {
+            return true;
+        } else return false;
+    });
+};
+
 function noticeBan(res, addr, html) {
     MainDB.ipbans.findOne(['ip', addr]).on((data) => {
         if (data !== undefined) {
@@ -13,4 +21,5 @@ function noticeBan(res, addr, html) {
     });
 };
 
+exports.checkIPBan = checkIPBan;
 exports.noticeBan = noticeBan;
