@@ -2,7 +2,7 @@
 	"__README__": "English table is not built yet due to the absence of my English skill. Please translate this if you are good at English.",
 
 	"GLOBAL": {
-		"GPL": "<div style='color: #666;'>끄투닷컴 (KKutuDotcom) Copyright (C) 2017-2020 SkyLightQP(me@skylightqp.kr) <br>This program comes with ABSOLUTELY NO WARRANTY.<br>This is free software, and you are welcome to redistribute it under certain conditions.<br>For details visit the repository of this software: <a target='_blank' href='https://github.com/SkyLightQP/KKuTuDotcom'>https://github.com/SkyLightQP/KKuTuDotcom</a></div>",
+		"GPL": "<div style='color: #666;'>끄투닷컴 (KKutuDotcom) Copyright (C) 2017-2020 SkyLightQP(combbm@gmail.com) <br>This program comes with ABSOLUTELY NO WARRANTY.<br>This is free software, and you are welcome to redistribute it under certain conditions.<br>For details visit the repository of this software: <a target='_blank' href='https://github.com/SkyLightQP/KKuTuDotcom'>https://github.com/SkyLightQP/KKuTuDotcom</a></div>",
 		
 		"CREATOR":	"개발자 블로그",
 		"HOME":		"FA{home}",
@@ -137,7 +137,7 @@
 		"sandbox": "샌드박스",
 		"cafe": "공식 카페",
 		"kakao": "플러스친구",
-		"etcSupport": "문의: admin@skylightqp.kr",
+		"etcSupport": "문의: combbm@gmail.com",
 		"welcome": "환영합니다.",
 		"welcomeTestServer": "테스트 서버에 접속했습니다. 본 서버는 특별한 공지 없이 폭발하거나 닫힐 수 있습니다.",
 		"loadRemain": "불러오는 중... 앞으로 ",
